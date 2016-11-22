@@ -1,12 +1,12 @@
 {
-  "name": "filesearch",
+  "name": "Dictionary",
   "version": "1.0.0",
-  "description": "searches for files",
+  "description": "Play around with words",
   "entry point": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "JavaScript Playground",
+  "author": "Suraj Anthwal",
   "license": "ISC",
   "preferGlobal": true,
   "bin": {

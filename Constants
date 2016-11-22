@@ -2,5 +2,8 @@ module.exports = {
 
 
     DEFINITION: 'def',
-    SYNONYM: 'syn'
+    SYNONYM: 'syn',
+    ANTONYM: 'ant',
+    EXAMPLE: 'ex',
+    
 };
