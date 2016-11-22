@@ -1,0 +1,27 @@
+{
+  "name": "word",
+  "version": "1.0.0",
+  "description": "dictionary console app",
+  "preferGlobal": true,
+  "bin": {
+    "filesearch": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suraj Anthwal",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "clear": "0.0.1",
+    "clui": "^0.3.1",
+    "figlet": "^1.2.0",
+    "github": "^6.1.0",
+    "inquirer": "^1.2.3",
+    "lodash": "^4.17.2",
+    "minimist": "^1.2.0",
+    "preferences": "^0.2.1",
+    "simple-git": "^1.62.0",
+    "touch": "^1.0.0"
+  }
+}

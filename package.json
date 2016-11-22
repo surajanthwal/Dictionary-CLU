@@ -1,0 +1,21 @@
+{
+  "name": "filesearch",
+  "version": "1.0.0",
+  "description": "searches for files",
+  "entry point": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JavaScript Playground",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "dict": "index.js"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.9.0",
+    "superagent": "^3.0.0"
+  }
+}
