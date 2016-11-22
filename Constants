@@ -1,6 +1,6 @@
 module.exports = {
 
 
-    DEFINITION: 'def'
-    
+    DEFINITION: 'def',
+    SYNONYM: 'syn'
 };
