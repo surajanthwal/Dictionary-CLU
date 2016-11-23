@@ -5,5 +5,5 @@ module.exports = {
     SYNONYM: 'syn',
     ANTONYM: 'ant',
     EXAMPLE: 'ex',
-    
+    PLAY: 'play'
 };
