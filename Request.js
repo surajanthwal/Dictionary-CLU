@@ -14,9 +14,7 @@ module.exports = {
             .set("api_key", "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
             .set('Accept', 'application/json')
             .end(function (err, res) {
-                // console.log("DEFINITIONS: ");
                 for (var i = 0; i < res.body.length; i++) {
-                    // console.log(res.body[i].text);
                     definitions.push(res.body[i].text)
                 }
                 if (typeof callback == "function")
@@ -34,19 +32,8 @@ module.exports = {
 
                 if (res.body.length != 0) {
                     synonyms = res.body[0].words;
-                    // console.log(synonyms);
                 }
 
-                // console.log("NO Synonym" + "\n");
-                // else {
-                // console.log("SYNONYMS: ");
-                // for (i = 0; i < synonyms.length; i++) {
-                //     if (synonyms.length > 1)
-                //         console.log(synonyms[i] + ",");
-                //     else
-                //         console.log(synonyms[i]);
-                // }
-                // console.log("\n");
                 if (typeof callback == "function")
                     callback(synonyms);
             });
@@ -77,7 +64,6 @@ module.exports = {
                     for (i = 0; i < res.body.examples.length; i++) {
                         examples.push(res.body.examples[i].text);
                     }
-                    // console.log("\n");
                 }
 
                 if (typeof callback == "function")
@@ -134,13 +120,4 @@ module.exports = {
                 }
             });
     }
-    // ,
-    // definitions: definitions,
-    // synonyms: synonyms,
-    // antonyms: antonyms,
-    // examples: examples,
-    // word: word,
-    // randomWord: randomWord
-
-}
-;
+};
