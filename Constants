@@ -5,5 +5,8 @@ module.exports = {
     SYNONYM: 'syn',
     ANTONYM: 'ant',
     EXAMPLE: 'ex',
-    PLAY: 'play'
+    PLAY: 'play',
+    BaseWordUrl:'http://api.wordnik.com:80/v4/word.json/',
+    BaseWordsUrl:'http://api.wordnik.com:80/v4/words.json/',
+    API_KEY:'a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'
 };

@@ -1,4 +1,6 @@
 var request = require('superagent');
+var Constants = require('./Constants');
+
 var definitions = [];
 var synonyms = [];
 var antonyms = [];
@@ -10,8 +12,8 @@ module.exports = {
     getDefinition: function (word, callback) {
         definitions = [];
         request
-            .get("http://api.wordnik.com:80/v4/word.json/" + word + "/definitions")
-            .set("api_key", "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+            .get(Constants.BaseWordUrl + word + "/definitions")
+            .set("api_key", Constants.API_KEY)
             .set('Accept', 'application/json')
             .end(function (err, res) {
                 for (var i = 0; i < res.body.length; i++) {
@@ -24,9 +26,9 @@ module.exports = {
     getSynonym: function (word, callback) {
         synonyms = [];
         request
-            .get("http://api.wordnik.com:80/v4/word.json/" + word + "/relatedWords")
+            .get(Constants.BaseWordUrl + word + "/relatedWords")
             .query({relationshipTypes: 'synonym'})
-            .set("api_key", "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+            .set("api_key", Constants.API_KEY)
             .set('Accept', 'application/json')
             .end(function (err, res) {
 
@@ -42,9 +44,9 @@ module.exports = {
     getAntonym: function (word, callback) {
         antonyms = [];
         request
-            .get("http://api.wordnik.com:80/v4/word.json/" + word + "/relatedWords")
+            .get(Constants.BaseWordUrl + word + "/relatedWords")
             .query({relationshipTypes: 'antonym'})
-            .set("api_key", "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+            .set("api_key", Constants.API_KEY)
             .set('Accept', 'application/json')
             .end(function (err, res) {
                 if (res.body.length != 0)
@@ -56,8 +58,8 @@ module.exports = {
     getExample: function (word, callback) {
         examples = [];
         request
-            .get("http://api.wordnik.com:80/v4/word.json/" + word + "/examples")
-            .set("api_key", "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+            .get(Constants.BaseWordUrl + word + "/examples")
+            .set("api_key", Constants.API_KEY)
             .set('Accept', 'application/json')
             .end(function (err, res) {
                 if (res.body.examples) {
@@ -80,9 +82,9 @@ module.exports = {
         var date = year + "-" + month + "-" + day;
         word = {};
         request
-            .get("http://api.wordnik.com:80/v4/words.json/wordOfTheDay")
+            .get(Constants.BaseWordsUrl+"wordOfTheDay")
             .query({date: date})
-            .set("api_key", "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+            .set("api_key", Constants.API_KEY)
             .set('Accept', 'application/json')
             .end(function (err, res) {
                 console.log("WORD OF THE DAY: ");
@@ -99,7 +101,7 @@ module.exports = {
     getRandomWord: function (callback) {
         randomWord = {};
         request
-            .get("http://api.wordnik.com:80/v4/words.json/randomWord")
+            .get(Constants.BaseWordsUrl+"randomWord")
             .query({hasDictionaryDef: false})
             .query({minCorpusCount: 0})
             .query({maxCorpusCount: -1})
@@ -107,7 +109,7 @@ module.exports = {
             .query({maxDictionaryCount: -1})
             .query({minLength: 5})
             .query({maxLength: -1})
-            .set("api_key", "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+            .set("api_key", Constants.API_KEY)
             .set('Accept', 'application/json')
             .end(function (err, res) {
                 // console.log("RANDOM WORD: ");
