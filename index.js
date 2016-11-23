@@ -25,25 +25,26 @@ var Output = require('./Output');
 
 function storingDefinitions(arg) {
     definitions = arg;
-    // console.log(definitions);
+    Output.printHeadingAndArrayElements("Definition", definitions);
 }
 
 function storingSynonyms(arg) {
     synonyms = arg;
-    // console.log(synonyms);
+    Output.printHeadingAndArrayElements("Synonym", synonyms);
 }
 
 function storingAntonyms(arg) {
     antonyms = arg;
+    Output.printHeadingAndArrayElements("Antonym", antonyms);
 }
 
 function storingExample(arg) {
     examples = arg;
+    Output.printHeadingAndArrayElements("Example", examples);
 }
 
 var getAllWordDetails = function (wordx) {
     word = wordx;
-    // console.log("inside word details");
     Request.getDefinition(word, saveDefinitionAndGetSynonym);
 
 
@@ -77,19 +78,37 @@ var getAllWordDetails = function (wordx) {
 if (userArgs[1])
     userArgs[1] = userArgs[1].trim();
 
+if (userArgs[0])
+    userArgs[0] = userArgs[0].trim();
+
+
 if (userArgs[0] == Constants.DEFINITION) {
-    Request.getDefinition(userArgs[1], storingDefinitions);
+    if (userArgs.length == 2) {
+        Request.getDefinition(userArgs[1], storingDefinitions);
+    } else {
+        console.log("Please Enter a word whose definition you want to see")
+    }
 
 } else if (userArgs[0] == Constants.SYNONYM) {
-    Request.getSynonym(userArgs[1], storingSynonyms);
-
+    if (userArgs.length == 2) {
+        Request.getSynonym(userArgs[1], storingSynonyms);
+    } else {
+        console.log("Please Enter a word whose synonym you want to see");
+    }
 
 } else if (userArgs[0] == Constants.ANTONYM) {
-    Request.getAntonym(userArgs[1], storingAntonyms);
-
+    if (userArgs.length == 2) {
+        Request.getAntonym(userArgs[1], storingAntonyms);
+    } else {
+        console.log("Please Enter a word whose antonym you want to see");
+    }
 
 } else if (userArgs[0] == Constants.EXAMPLE) {
-    Request.getExample(userArgs[1], storingExample);
+    if (userArgs.length == 2) {
+        Request.getExample(userArgs[1], storingExample);
+    } else {
+        console.log("Please Enter a word whose example you want to see");
+    }
 
 } else if (userArgs.length == 0) {
     Request.getWordOfDay(getAllWordDetails);

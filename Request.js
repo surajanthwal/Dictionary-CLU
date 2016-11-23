@@ -62,17 +62,6 @@ module.exports = {
             .end(function (err, res) {
                 if (res.body.length != 0)
                     antonyms = res.body[0].words;
-
-                //     console.log("NO antonym" + "\n");
-                // else {
-                // for (i = 0; i < antonyms.length; i++) {
-                //     if (antonyms.length > 1)
-                //         console.log(antonyms[i] + ",");
-                //     else
-                //         console.log(antonyms[i]);
-                // }
-                // console.log("\n");
-                // }
                 if (typeof callback == "function")
                     callback(antonyms);
             });
@@ -113,8 +102,7 @@ module.exports = {
                 console.log("WORD OF THE DAY: ");
                 if (res.body.word) {
                     word = res.body.word;
-                    // console.log(res.body.word);
-                    // console.log("\n");
+                    console.log(word);
                     if (typeof callback == "function")
                         callback(word);
                 }
